@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="theme-color" content="#f6f6f2">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leigh LaHood, Art Director</title>
+<meta name="description" content="Leigh LaHood is an award-winning art director with 20+ years of experience, including a decade leading creative at the US Holocaust Memorial Museum. Available for senior creative roles and freelance projects.">
+<meta property="og:title" content="Leigh LaHood, Art Director">
+<meta property="og:description" content="Award-winning art direction. Webby-winning campaigns, Shorty-finalist animation, and work that makes people feel something.">
+<!-- TODO: once live, replace with absolute URL, e.g. https://YOURUSERNAME.github.io/images/llsite-f298aefd.jpg -->
+<meta property="og:image" content="images/llsite-f298aefd.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wdth,wght@0,62..125,100..900;1,62..125,100..900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f6f6f2;
+    --ink:#15150f;
+    --ink-soft:#52524a;
+    --cobalt:#1f3fd8;
+    --cobalt-deep:#16309f;
+    --hairline:rgba(21,21,15,.14);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Archivo",system-ui,sans-serif;
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  img{display:block;max-width:100%;height:auto}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--cobalt);color:var(--paper)}
+  a:focus-visible,button:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+  .bluedoor a:focus-visible,.bluedoor button:focus-visible{outline-color:var(--paper)}
+
+  .display{font-stretch:120%;font-weight:880;text-transform:uppercase;letter-spacing:-.015em;line-height:.95}
+  h1,h2,h3{text-wrap:balance}
+  p{text-wrap:pretty}
+  .outline{
+    color:transparent;
+    -webkit-text-stroke:2px var(--ink);
+    text-stroke:2px var(--ink);
+  }
+  .shell{max-width:1480px;margin:0 auto;padding:0 clamp(20px,4vw,56px)}
+  [id]{scroll-margin-top:76px}
+
+  /* ---------- nav ---------- */
+  nav{
+    position:fixed;inset:0 0 auto 0;z-index:50;height:66px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 clamp(20px,4vw,56px);
+    background:color-mix(in srgb,var(--paper) 90%,transparent);
+    backdrop-filter:blur(12px);
+    border-bottom:1.5px solid var(--ink);
+  }
+  .nav-name{font-weight:880;font-stretch:122%;text-transform:uppercase;font-size:16px}
+  .nav-name span{color:var(--cobalt)}
+  .nav-links{display:flex;gap:clamp(16px,3vw,36px);font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+  .nav-links a{position:relative;padding:4px 0}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;bottom:0;height:3px;width:100%;
+    background:var(--cobalt);transform:scaleX(0);transform-origin:left;
+    transition:transform .3s var(--ease);
+  }
+  .nav-links a:hover::after{transform:scaleX(1)}
+  @media(max-width:640px){.nav-links{gap:12px;font-size:12px}}
+
+  /* ---------- hero ---------- */
+  .hero{min-height:88dvh;display:flex;flex-direction:column;justify-content:center;padding-top:96px;padding-bottom:24px}
+  .hero h1{
+    font-size:clamp(3rem,9vw,6rem);
+    text-transform:uppercase;font-stretch:122%;font-weight:900;
+    line-height:.92;letter-spacing:-.02em;
+  }
+  .hero h1 .row{display:block}
+  .hero-foot{
+    display:flex;justify-content:space-between;align-items:flex-end;gap:32px;
+    margin-top:clamp(28px,4vw,48px);flex-wrap:wrap;
+  }
+  .hero-sub{font-size:clamp(1rem,1.4vw,1.25rem);color:var(--ink-soft);max-width:38ch;font-weight:500}
+  .hero-cta-row{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:16px 30px;font-size:15px;font-weight:800;text-transform:uppercase;letter-spacing:.02em;
+    border:2px solid var(--ink);white-space:nowrap;
+    transition:transform .2s var(--ease),background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);
+  }
+  .btn:active{transform:translateY(1px) scale(.98)}
+  .btn-solid{background:var(--ink);color:var(--paper)}
+  .btn-solid:hover{background:var(--cobalt);border-color:var(--cobalt)}
+  .btn-line:hover{background:var(--ink);color:var(--paper)}
+
+  /* ---------- marquee ---------- */
+  .marquee{
+    border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);
+    overflow:hidden;white-space:nowrap;padding:14px 0;background:var(--paper);
+  }
+  .marquee-track{display:inline-flex;gap:0}
+  .marquee span{
+    font-stretch:120%;font-weight:880;text-transform:uppercase;
+    font-size:clamp(1.1rem,2vw,1.6rem);padding-right:1.2em;
+  }
+  .marquee em{font-style:normal;color:var(--cobalt)}
+  @media (prefers-reduced-motion: no-preference){
+    .marquee-track{animation:slide 28s linear infinite}
+    @keyframes slide{to{transform:translateX(-50%)}}
+  }
+
+  /* ---------- full-bleed work mosaic ---------- */
+  .mosaic{display:grid;grid-template-columns:1fr 1fr;gap:0}
+  .tile{
+    position:relative;display:block;overflow:hidden;
+    aspect-ratio:16/10;border-bottom:2px solid var(--ink);
+  }
+  .tile:nth-child(odd){border-right:2px solid var(--ink)}
+  .tile.full{grid-column:1/-1;aspect-ratio:21/9;border-right:0}
+  .tile img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+  .tile:hover img{transform:scale(1.06)}
+  .tile-name{
+    position:absolute;inset:auto 0 0 0;padding:clamp(16px,2.5vw,30px);
+    display:flex;justify-content:space-between;align-items:flex-end;gap:16px;
+    color:#fff;
+    background:linear-gradient(transparent,rgba(21,21,15,.72));
+  }
+  .tile-name h3{font-stretch:120%;font-weight:880;text-transform:uppercase;font-size:clamp(1.3rem,3vw,2.6rem);line-height:.95}
+  .tile-name span{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;opacity:.85;white-space:nowrap;line-height:1;padding-bottom:.12em}
+  @media (prefers-reduced-motion: no-preference){
+    .tile .tile-name{transform:translateY(8px);opacity:.96;transition:transform .5s var(--ease)}
+    .tile:hover .tile-name{transform:translateY(0)}
+  }
+  @media(max-width:760px){
+    .mosaic{grid-template-columns:1fr}
+    .tile{aspect-ratio:4/3;border-right:0!important}
+    .tile.full{aspect-ratio:4/3}
+  }
+
+  /* ---------- proof strip ---------- */
+  .proof{padding:clamp(56px,8vw,110px) 0;border-bottom:2px solid var(--ink)}
+  .proof-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3vw,40px)}
+  .proof-item h3{font-stretch:120%;font-weight:880;text-transform:uppercase;font-size:clamp(1.5rem,2.6vw,2.2rem);line-height:1.05}
+  .proof-item h3 em{font-style:normal;color:var(--cobalt)}
+  .proof-item p{margin-top:10px;color:var(--ink-soft);font-size:15px;max-width:30ch}
+  @media(max-width:760px){.proof-grid{grid-template-columns:1fr;gap:32px}}
+
+  /* ---------- case studies ---------- */
+  .sec-pad{padding:clamp(72px,10vw,140px) 0}
+  .sec-head{margin-bottom:clamp(36px,5vw,64px)}
+  .sec-head h2{font-size:clamp(2.4rem,6vw,5rem)}
+  .sec-head p{margin-top:18px;color:var(--ink-soft);max-width:60ch}
+  .case{padding:clamp(56px,8vw,110px) 0;border-top:1px solid var(--hairline)}
+  .case-kicker{font-size:13px;font-weight:800;color:var(--cobalt);text-transform:uppercase;letter-spacing:.14em;margin-bottom:14px}
+  .case h3{font-size:clamp(1.9rem,4.4vw,3.6rem);max-width:14em}
+  .case-meta{margin-top:14px;font-size:14px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.04em}
+  .case-body{margin-top:22px;color:var(--ink-soft);max-width:62ch}
+  .case-cols{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.5vw,36px);margin-top:clamp(30px,4vw,52px)}
+  .case-cols.wide-first{grid-template-columns:2fr 1fr}
+  .media-frame{border:2px solid var(--ink);background:var(--ink);aspect-ratio:16/9;overflow:hidden}
+  .media-frame iframe{width:100%;height:100%;border:0;display:block}
+  .media-frame.tall{aspect-ratio:4/5;display:block}
+  .media-frame img{width:100%;height:100%;object-fit:cover;transition:transform .8s var(--ease)}
+  a.media-frame:hover img{transform:scale(1.05)}
+  .media-cap{margin-top:10px;font-size:13px;color:var(--ink-soft)}
+  .case-cols.bottom-align{align-items:end}
+  @media(max-width:860px){
+    .case-cols,.case-cols.wide-first{grid-template-columns:1fr}
+  }
+
+  /* ---------- masonry galleries ---------- */
+  .masonry{columns:3;column-gap:clamp(14px,2vw,24px);margin-top:clamp(30px,4vw,52px)}
+  .masonry.two{columns:2}
+  .masonry img{
+    width:100%;border:2px solid var(--ink);margin-bottom:clamp(14px,2vw,24px);
+    break-inside:avoid;display:block;background:#fff;
+    transition:transform .5s var(--ease);
+  }
+  .masonry img:hover{transform:scale(1.015)}
+  @media(max-width:860px){.masonry{columns:2}.masonry.two{columns:1}}
+  @media(max-width:560px){.masonry{columns:1}}
+
+  /* ---------- print chapter ---------- */
+  .print-group{margin-top:clamp(48px,6vw,88px)}
+  .print-group h4{
+    font-stretch:118%;font-weight:880;text-transform:uppercase;
+    font-size:clamp(1.15rem,1.8vw,1.5rem);letter-spacing:-.01em;
+    padding-bottom:14px;border-bottom:2px solid var(--ink);margin-bottom:clamp(18px,2.5vw,28px);
+  }
+  .print-group img{width:100%;height:auto;display:block;border:2px solid var(--ink)}
+  .print-group .duo{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.5vw,36px);margin-top:clamp(18px,2.5vw,36px)}
+  @media(max-width:760px){.print-group .duo{grid-template-columns:1fr}}
+
+  /* ---------- photography filmstrip ---------- */
+  .filmstrip{
+    display:flex;gap:clamp(14px,2vw,24px);
+    overflow-x:auto;scroll-snap-type:x mandatory;
+    padding:clamp(30px,4vw,52px) clamp(20px,4vw,56px) 20px;
+    -webkit-overflow-scrolling:touch;
+  }
+  .filmstrip img{
+    height:min(62vh,540px);width:auto;flex:0 0 auto;
+    scroll-snap-align:start;border:2px solid var(--ink);
+  }
+  .filmstrip::-webkit-scrollbar{height:8px}
+  .filmstrip::-webkit-scrollbar-thumb{background:var(--ink)}
+  .filmstrip::-webkit-scrollbar-track{background:transparent}
+  .strip-hint{font-size:13px;font-weight:700;color:var(--ink-soft);text-transform:uppercase;letter-spacing:.06em;margin-top:14px}
+
+  /* ---------- video episode switcher ---------- */
+  .player-xl{max-width:1100px}
+  .ut-player-row{display:flex;gap:clamp(20px,3vw,40px);align-items:flex-end;flex-wrap:wrap}
+  .media-frame.vert{aspect-ratio:9/16;width:min(400px,86vw)}
+  .vert-btns{flex-direction:column;align-items:flex-start;margin-top:0}
+  @media(max-width:640px){.vert-btns{flex-direction:row;flex-wrap:wrap}}
+  .ep-btns{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}
+  .ep-btn{
+    padding:12px 22px;border:2px solid var(--ink);background:transparent;color:var(--ink);
+    font-family:inherit;font-weight:800;font-size:14px;text-transform:uppercase;letter-spacing:.03em;
+    cursor:pointer;transition:background .2s var(--ease),color .2s var(--ease);
+  }
+  .ep-btn:hover,.ep-btn.active{background:var(--ink);color:var(--paper)}
+  .ep-btn.active{border-color:var(--cobalt);background:var(--cobalt)}
+
+  /* ---------- blue door print gallery ---------- */
+  .print-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2vw,24px)}
+  .print-grid img{
+    width:100%;aspect-ratio:5/7;object-fit:cover;display:block;
+    border:2px solid var(--paper);
+    transition:transform .5s var(--ease);
+  }
+  .print-grid img:hover{transform:scale(1.02)}
+  @media(max-width:860px){.print-grid{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.print-grid{grid-template-columns:1fr}}
+
+  /* ---------- blue door ---------- */
+  .bluedoor{background:var(--cobalt);color:var(--paper);border-top:2px solid var(--ink)}
+  .bd-grid{display:grid;grid-template-columns:5fr 7fr;gap:clamp(24px,4vw,64px);align-items:center}
+  .bd-grid img{border:2px solid var(--paper);width:100%;aspect-ratio:1/1;object-fit:cover}
+  .bd-grid h2{color:var(--paper);font-size:clamp(2.2rem,5vw,4.2rem)}
+  .bd-grid .lede{margin-top:20px;color:rgba(246,246,242,.86);max-width:54ch}
+  .btn-paper{border-color:var(--paper);color:var(--paper)}
+  .btn-paper:hover{background:var(--paper);color:var(--cobalt)}
+  .btn-paper-solid{background:var(--paper);color:var(--cobalt);border-color:var(--paper)}
+  .btn-paper-solid:hover{background:var(--cobalt-deep);color:var(--paper)}
+  .bd-links{margin-top:32px;display:flex;gap:14px;flex-wrap:wrap}
+  @media(max-width:860px){.bd-grid{grid-template-columns:1fr}.bd-grid img{max-width:420px}}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:4fr 8fr;gap:clamp(24px,4vw,72px);align-items:start}
+  .about-grid img{border:2px solid var(--ink);width:100%;aspect-ratio:4/5;object-fit:cover}
+  .about-copy p{color:var(--ink-soft);margin-bottom:1.2em;max-width:58ch}
+  .about-copy p:first-child{color:var(--ink);font-size:clamp(1.2rem,2vw,1.55rem);font-weight:700;line-height:1.4}
+  @media(max-width:860px){.about-grid{grid-template-columns:1fr}.about-grid img{max-width:360px}}
+
+  /* ---------- contact ---------- */
+  .contact{border-top:2px solid var(--ink)}
+  .contact h2{font-size:clamp(2.4rem,7vw,6rem);max-width:12em}
+  .email-link{
+    display:inline-block;margin-top:36px;
+    font-size:clamp(1.3rem,3.6vw,2.8rem);font-weight:850;letter-spacing:-.02em;
+    border-bottom:4px solid var(--cobalt);padding-bottom:6px;
+    transition:color .25s var(--ease);word-break:break-all;
+  }
+  .email-link:hover{color:var(--cobalt)}
+
+  footer{border-top:2px solid var(--ink);padding:26px 0;font-size:13px;color:var(--ink-soft);font-weight:600}
+  footer .shell{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
+
+  /* ---------- motion ---------- */
+  .reveal{opacity:1;transform:none}
+  @media (prefers-reduced-motion: no-preference){
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+    .reveal.in{opacity:1;transform:none}
+    .reveal-late{transition-delay:.15s}
+    .hero h1 .row{overflow:hidden}
+    .hero h1 .row > span{display:inline-block;transform:translateY(112%);animation:riseUp .9s var(--ease) forwards}
+    .hero h1 .row:nth-child(2) > span{animation-delay:.1s}
+    .hero h1 .row:nth-child(3) > span{animation-delay:.2s}
+    @keyframes riseUp{to{transform:translateY(0)}}
+    .hero-foot{opacity:0;animation:fadeUp .9s var(--ease) .4s forwards}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-name" href="#top">Leigh <span>LaHood</span></a>
+  <div class="nav-links">
+    <a href="#work">Work</a>
+    <a href="#bluedoor">Shop</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="shell">
+    <h1>
+      <span class="row"><span>Make them</span></span>
+      <span class="row"><span class="outline">feel</span></span>
+      <span class="row"><span>something.</span></span>
+    </h1>
+    <div class="hero-foot">
+      <p class="hero-sub">Art direction, campaigns, and brand storytelling. 20+ years, the last decade leading creative at the US Holocaust Memorial Museum.</p>
+      <div class="hero-cta-row">
+        <a class="btn btn-solid" href="#work">See the work</a>
+        <a class="btn btn-line" href="#contact">Get in touch</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>Art Direction <em>/</em> Campaigns <em>/</em> Animation <em>/</em> Identity <em>/</em> Print <em>/</em> Illustration <em>/</em>&nbsp;</span>
+    <span>Art Direction <em>/</em> Campaigns <em>/</em> Animation <em>/</em> Identity <em>/</em> Print <em>/</em> Illustration <em>/</em>&nbsp;</span>
+  </div>
+</div>
+
+<!-- ============ FULL-BLEED WORK MOSAIC ============ -->
+<section id="work" class="mosaic" aria-label="Selected work">
+  <a class="tile full" href="#undeniable">
+    <img src="images/llsite-f298aefd.jpg" width="2560" height="1440" alt="The Undeniable Truth social campaign">
+    <div class="tile-name"><h3>The Undeniable Truth</h3><span>Social Campaign · Webby Winner</span></div>
+  </a>
+  <a class="tile" href="#behindeveryname">
+    <img src="images/llsite-e55b92f4.jpg" width="1920" height="1080" alt="Behind Every Name animation series">
+    <div class="tile-name"><h3>Behind Every Name</h3><span>Animation</span></div>
+  </a>
+  <a class="tile" href="#memoryaction">
+    <img src="images/llsite-a16f8433.jpg" width="1920" height="1080" alt="Memory and Action magazine">
+    <div class="tile-name"><h3>Print</h3><span>Magazine &middot; Reports &middot; Environmental</span></div>
+  </a>
+  <a class="tile" href="#photo">
+    <img src="images/llsite-40990dcc.jpg" width="829" height="467" alt="Photography concept and direction">
+    <div class="tile-name"><h3>Photo Direction</h3><span>Concept &middot; Shoot &middot; Design</span></div>
+  </a>
+  <a class="tile" href="#identity">
+    <img src="images/llsite-0b40ef5d.jpg" width="1920" height="1080" alt="Logo and identity design">
+    <div class="tile-name"><h3>Identity</h3><span>Logos &amp; Brand Systems</span></div>
+  </a>
+  <a class="tile full" href="#bluedoor">
+    <img src="images/llsite-a1bd99ce.jpg" width="948" height="534" alt="Blue Door Supply Co illustrated prints">
+    <div class="tile-name"><h3>Blue Door Supply Co.</h3><span>Illustration &amp; Merch</span></div>
+  </a>
+</section>
+
+<!-- ============ PROOF STRIP ============ -->
+<section class="proof">
+  <div class="shell proof-grid reveal">
+    <div class="proof-item">
+      <h3 class="display"><em>Webby</em> Award</h3>
+      <p>Winning social campaigns built to move the fastest-scrolling audiences on the internet.</p>
+    </div>
+    <div class="proof-item">
+      <h3 class="display">600+ <em>Projects</em> a Year</h3>
+      <p>Leading and mentoring the creative team behind the Museum's campaigns, social media, and brand.</p>
+    </div>
+    <div class="proof-item">
+      <h3 class="display">Ahead of the <em>Curve</em></h3>
+      <p>Early to fold new tools, including AI, into the creative process without ever lowering the bar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CASE STUDY 1 ============ -->
+<article class="case" id="undeniable">
+  <div class="shell">
+    <div class="reveal">
+      <p class="case-kicker">Case study, Social Campaign</p>
+      <h3 class="display">The Undeniable Truth</h3>
+      <p class="case-meta">US Holocaust Memorial Museum · Creative Direction · Webby Award winner</p>
+      <p class="case-body">Reaching younger audiences with one of history's heaviest subjects demands more than reverence. It demands strategy, restraint, and craft. I led concept and creative direction for social campaigns that inspire action, build community, and hold attention where attention is hardest to earn.</p>
+    </div>
+    <div class="reveal reveal-late" style="margin-top:clamp(30px,4vw,52px)">
+      <div class="ut-player-row">
+        <div class="media-frame vert"><iframe id="utPlayer" referrerpolicy="strict-origin-when-cross-origin" title="Undeniable Truth campaign video" src="https://www.youtube.com/embed/zg2hFWESxp0?rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        <div class="ep-btns vert-btns" role="tablist" aria-label="Undeniable Truth campaign videos">
+          <button class="ep-btn active" data-player="utPlayer" data-yt="zg2hFWESxp0">Video 1</button>
+          <button class="ep-btn" data-player="utPlayer" data-yt="EKlie5nrrUw">Video 2</button>
+          <button class="ep-btn" data-player="utPlayer" data-yt="jmgSckQmjyw">Video 3</button>
+          <button class="ep-btn" data-player="utPlayer" data-yt="Uqxz04iJLBY">Video 4</button>
+          <button class="ep-btn" data-player="utPlayer" data-yt="_P8t9e4gu9g">Video 5</button>
+          <button class="ep-btn" data-player="utPlayer" data-yt="u-nbTzkVhIs">Video 6</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CASE STUDY 2 ============ -->
+<article class="case" id="behindeveryname">
+  <div class="shell">
+    <div class="reveal">
+      <p class="case-kicker">Case study, Animation</p>
+      <h3 class="display">Behind Every Name</h3>
+      <p class="case-meta">US Holocaust Memorial Museum · Creative Direction · Shorty Awards finalist</p>
+      <p class="case-body">An animated series bringing stories of Americans and the Holocaust to life. I selected and directed the agency partnership, balancing historical accuracy with a visual style engaging enough to work in classrooms and win in social feeds. The series became a widely used educational tool and a finalist in the 14th Annual Shorty Awards.</p>
+    </div>
+    <div class="reveal reveal-late" style="margin-top:clamp(30px,4vw,52px)">
+      <div class="media-frame player-xl"><iframe id="benPlayer" referrerpolicy="strict-origin-when-cross-origin" title="Behind Every Name film" src="https://www.youtube.com/embed/jV83rLVqmH4?rel=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+      <div class="ep-btns" role="tablist" aria-label="Behind Every Name films">
+        <button class="ep-btn active" data-player="benPlayer" data-yt="jV83rLVqmH4">Video 1</button>
+        <button class="ep-btn" data-player="benPlayer" data-yt="LY2AS_4wWc0">Video 2</button>
+        <button class="ep-btn" data-player="benPlayer" data-yt="KF5o7xnhl3w">Video 3</button>
+        <button class="ep-btn" data-player="benPlayer" data-yt="7B_R7JcNXeg">Video 4</button>
+        <button class="ep-btn" data-player="benPlayer" data-yt="N1I6wX2Y21s">Video 5</button>
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ CASE STUDY 3 ============ -->
+<article class="case" id="memoryaction">
+  <div class="shell">
+    <div class="reveal">
+      <p class="case-kicker">Case study, Print</p>
+      <h3 class="display">Print</h3>
+      <p class="case-meta">US Holocaust Memorial Museum &middot; Art Direction &amp; Design</p>
+      <p class="case-body">Screens get the buzz; ink is where craft shows. A decade of print at the Museum spans three scales: a biannual magazine read by members and donors, data-rich impact reports, and environmental graphics built into the architecture itself.</p>
+    </div>
+
+    <!-- Group 1: Memory & Action magazine -->
+    <div class="print-group reveal">
+      <h4>Memory &amp; Action Magazine</h4>
+      <div class="lead"><img loading="lazy" src="images/llsite-f00c4e4e.jpg" width="1920" height="1280" alt="Memory and Action magazine covers, Decoding the Power of Propaganda issue"></div>
+      <div class="duo">
+        <img loading="lazy" src="images/llsite-47c4f7ed.jpg" width="1800" height="1200" alt="Magazine spread on Nazi propaganda posters">
+        <img loading="lazy" src="images/llsite-8da7cfbc.jpg" width="1800" height="1200" alt="Magazine spread, There Is No Humanity">
+        <img loading="lazy" src="images/llsite-63ace7c7.jpg" width="1800" height="1200" alt="Magazine spread, tools to persuade the masses">
+        <img loading="lazy" src="images/llsite-5be99136.jpg" width="1800" height="1200" alt="Magazine photo essay spread">
+        <img loading="lazy" src="images/llsite-aca1bd94.jpg" width="1800" height="1200" alt="Magazine feature spread with map of Iraq">
+        <img loading="lazy" src="images/llsite-99e4d469.jpg" width="3840" height="2560" alt="Open Memory and Action magazine, They Want Us All to Go Away feature">
+      </div>
+    </div>
+
+    <!-- Group 2: impact reports & infographics -->
+    <div class="print-group reveal">
+      <h4>Impact Reports &amp; Infographics</h4>
+      <div class="lead"><img loading="lazy" src="images/llsite-4ce015eb.jpg" width="1296" height="774" alt="Radial infographic spread, Deepening Our American Partnerships"></div>
+      <div class="duo">
+        <img loading="lazy" src="images/llsite-e28077c5.jpg" width="1296" height="774" alt="Partnering for Global Reach and Impact world map infographic">
+        <img loading="lazy" src="images/llsite-07a99893.jpg" width="1296" height="774" alt="Broadcasting Our Global Reach data visualization spread">
+      </div>
+    </div>
+
+    <!-- Group 3: environmental & events -->
+    <div class="print-group reveal">
+      <h4>Environmental &amp; Events</h4>
+      <div class="lead"><img loading="lazy" src="images/llsite-00b4d53e.jpg" width="3840" height="2560" alt="Americans and the Holocaust environmental banners installed in a museum corridor"></div>
+      <div class="duo">
+        <img loading="lazy" src="images/llsite-448a1225.jpg" width="1920" height="1280" alt="Americans and the Holocaust banners on the US Holocaust Memorial Museum building facade">
+        <img loading="lazy" src="images/llsite-9ba4c56f.jpg" width="1920" height="1280" alt="What You Do Matters event poster">
+        <img loading="lazy" src="images/llsite-dc93e5b1.jpg" width="1200" height="798" alt="Visitors viewing exhibition graphics">
+        <img loading="lazy" src="images/llsite-c28b7d57.jpg" width="1920" height="1336" alt="What You Do Matters large-format banner, We Remember We Teach We Defend the Truth of the Holocaust">
+      </div>
+    </div>
+  </div>
+</article>
+
+<!-- ============ PHOTO DIRECTION ============ -->
+<article class="case" id="photo">
+  <div class="shell reveal">
+    <h3 class="display">Photo Direction</h3>
+    <p class="case-meta">Concept &middot; On-set Direction &middot; Design Integration</p>
+    <p class="case-body">Photography runs through everything I design. I concept the shoot, work shoulder to shoulder with photographers and stylists on set, then carry the images into the finished work, from magazine features to campaigns. The shoots here range from a Museum fundraising calendar series to campaign and editorial work, each one concepted and directed to live inside a design.</p>
+  </div>
+  <div class="filmstrip reveal reveal-late">
+    <img loading="lazy" src="images/llsite-a785e3cc.jpg" width="3840" height="3063" alt="Photo direction by Leigh LaHood">
+    <img loading="lazy" src="images/llsite-fc2cf233.jpg" width="1920" height="1532" alt="Photo direction by Leigh LaHood">
+    <img loading="lazy" src="images/llsite-c18cabbe.jpg" width="1920" height="1532" alt="Photo direction by Leigh LaHood">
+    <img loading="lazy" src="images/llsite-4342570a.jpg" width="3840" height="3063" alt="Photo direction by Leigh LaHood">
+    <img loading="lazy" src="images/llsite-369f3e52.jpg" width="1920" height="1532" alt="Photo direction by Leigh LaHood">
+    <img loading="lazy" src="images/llsite-ab1e2302.jpg" width="3840" height="3063" alt="Photo direction by Leigh LaHood">
+    <img loading="lazy" src="images/llsite-d8776995.jpg" width="3840" height="2560" alt="Photo direction by Leigh LaHood">
+    <img loading="lazy" src="images/llsite-537fb3e5.jpg" width="3840" height="2560" alt="Photo direction by Leigh LaHood">
+    <img loading="lazy" src="images/llsite-3e3ca38c.jpg" width="3840" height="2560" alt="Photo direction by Leigh LaHood">
+    <img loading="lazy" src="images/llsite-1ffbda29.png" width="1920" height="1270" alt="Photo direction by Leigh LaHood">
+  </div>
+  <div class="shell"><p class="strip-hint">Drag or scroll sideways</p></div>
+</article>
+
+<!-- ============ IDENTITY ============ -->
+<article class="case" id="identity">
+  <div class="shell">
+    <div class="reveal">
+      <h3 class="display">Identity</h3>
+      <p class="case-meta">Logos &amp; Brand Systems</p>
+      <p class="case-body">Logos are my favorite creative puzzle: distilling a brand's essence into a single, striking mark. Bold and modern or timeless and elegant, built to tell a story and stand the test of time.</p>
+    </div>
+    <div class="masonry two reveal reveal-late">
+      <img loading="lazy" src="images/llsite-26685dfb.jpg" width="1670" height="1343" alt="Logo design by Leigh LaHood">
+      <img loading="lazy" src="images/llsite-ca96f19b.jpg" width="1200" height="920" alt="Logo design by Leigh LaHood">
+      <img loading="lazy" src="images/llsite-0ed19cb2.jpg" width="1920" height="1280" alt="Logo design by Leigh LaHood">
+      <img loading="lazy" src="images/llsite-43176fff.png" width="1200" height="920" alt="Brand identity design by Leigh LaHood">
+      <img loading="lazy" src="images/llsite-a1d027c8.jpg" width="1200" height="750" alt="Logo design by Leigh LaHood">
+      <img loading="lazy" src="images/llsite-40b33de8.jpg" width="3840" height="2560" alt="Brand identity design by Leigh LaHood">
+    </div>
+  </div>
+</article>
+
+<!-- ============ BLUE DOOR ============ -->
+<section id="bluedoor" class="bluedoor sec-pad">
+  <div class="shell bd-grid">
+    <div class="reveal">
+      <!-- TODO: swap for a strong product flat lay or print collage -->
+      <img src="images/llsite-a1bd99ce.jpg" width="948" height="534" alt="Illustrated graphic prints by Blue Door Supply Co">
+    </div>
+    <div class="reveal reveal-late">
+      <h2 class="display">Blue Door Supply Co.</h2>
+      <p class="lede">The other side of the desk. Original illustrations on prints, tees, mugs, and stickers, drawn and designed by me. Versatile in style, commercial in instinct, and proof that the art director still makes art.</p>
+      <div class="bd-links">
+        <a class="btn btn-paper-solid" href="https://bluedoorsupplyco.etsy.com" target="_blank" rel="noopener">Shop on Etsy</a>
+        <a class="btn btn-paper" href="https://www.instagram.com/bluedoorsupplyco" target="_blank" rel="noopener">@bluedoorsupplyco</a>
+      </div>
+    </div>
+  </div>
+  <!-- Illustrated prints: perfect 3x2 grid, all 1500x2100 (5:7), strongest first -->
+  <div class="shell">
+    <div class="print-grid reveal" style="margin-top:clamp(48px,6vw,88px)">
+      <img loading="lazy" src="images/llsite-e8ec6f01.jpg" width="1500" height="2100" alt="Whatever It Is, Get After It, tiger print by Blue Door Supply Co">
+      <img loading="lazy" src="images/protect-democracy.jpg" width="1500" height="2100" alt="Protect Democracy, illustrated print by Blue Door Supply Co">
+      <img loading="lazy" src="images/defend-your-library.jpg" width="1500" height="2100" alt="Defend Your Library, illustrated print by Blue Door Supply Co">
+      <img loading="lazy" src="images/small-rebellion.jpg" width="1500" height="2100" alt="Hope is a Small Rebellion, illustrated print by Blue Door Supply Co">
+      <img loading="lazy" src="images/llsite-bc65902e.jpg" width="1500" height="2100" alt="Trust Your Intuition, illustrated print by Blue Door Supply Co">
+      <img loading="lazy" src="images/pretzel-pigeon.jpg" width="1500" height="2100" alt="Pretzel Pigeon, illustrated print by Blue Door Supply Co">
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="sec-pad">
+  <div class="shell about-grid">
+    <div class="reveal">
+      <!-- TODO: swap for a real portrait of Leigh, ~1200x1500 -->
+      <img src="images/llsite-00ec30bd.png" width="600" height="600" alt="Leigh LaHood">
+    </div>
+    <div class="about-copy reveal reveal-late">
+      <p>I lead creative teams through breakthrough campaigns and rebrands, specializing in big-picture thinking that makes brands unforgettable.</p>
+      <p>My approach: create an environment where wild ideas are welcome, collaboration feels natural, and the work reflects the energy we bring to it. Whether it's a national campaign, a complete brand identity, or a digital experience, I thrive at the sweet spot where strategy meets craft.</p>
+      <p>For over a decade I've been the Senior Art Director at the US Holocaust Memorial Museum in Washington, DC, leading the creative team behind its campaigns, publications, and brand, where the stakes for getting the story right could not be higher. Before that: building brands for a print-on-demand startup through its acquisition, developing a 13,000-piece licensed art collection with global artists, and designing for toys, publishing, and national campaigns.</p>
+      <p>I was also early to bring AI into the creative process, using it to explore more concepts, move faster, and raise the bar on the finished work rather than lower it.</p>
+      <p>When I'm not leading creative teams, you'll find me on stage singing the blues, behind a drum kit, or making colorful illustrated prints and tees. Turns out I can't stop making things, even when I try.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact sec-pad">
+  <div class="shell reveal">
+    <h2 class="display">Have a brand that needs to be <span class="outline">unforgettable?</span></h2>
+    <a class="email-link" href="mailto:leigh.lahood@gmail.com">leigh.lahood@gmail.com</a>
+  </div>
+</section>
+
+<footer>
+  <div class="shell">
+    <span>&copy; 2026 Leigh LaHood</span>
+    <span>Washington, DC</span>
+  </div>
+</footer>
+
+<script>
+  // ===== Reliable in-page anchor scrolling (compensates for lazy-image layout shift) =====
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(!t) return;
+      e.preventDefault();
+      t.scrollIntoView({behavior:'smooth',block:'start'});
+      history.pushState(null,'',a.getAttribute('href'));
+      // re-align after images above finish loading and shift the layout
+      let tries=0;
+      const settle=setInterval(()=>{
+        const top=t.getBoundingClientRect().top;
+        if(Math.abs(top-76)>60) t.scrollIntoView({behavior:'auto',block:'start'});
+        if(++tries>5) clearInterval(settle);
+      },700);
+    });
+  });
+
+  // ===== Behind Every Name episode switcher =====
+  document.querySelectorAll('.ep-btn').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      btn.closest('.ep-btns').querySelector('.ep-btn.active')?.classList.remove('active');
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.player).src =
+        `https://www.youtube.com/embed/${btn.dataset.yt}?rel=0&autoplay=1`;
+    });
+  });
+
+  // ===== Scroll reveals (respects prefers-reduced-motion via CSS gating) =====
+  const io = new IntersectionObserver((entries)=>{
+    for(const e of entries){
+      if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}
+    }
+  },{threshold:0.15,rootMargin:'0px 0px -5% 0px'});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
