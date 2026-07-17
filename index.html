@@ -93,6 +93,13 @@
     transition:transform .2s var(--ease),background .25s var(--ease),color .25s var(--ease),border-color .25s var(--ease);
   }
   .btn:active{transform:translateY(1px) scale(.98)}
+  @media(max-width:640px){
+    .hero h1{font-size:clamp(2.1rem,10.5vw,3rem)}
+    .hero-foot{flex-direction:column;align-items:flex-start}
+    .hero-cta-row{width:100%}
+    .hero-cta-row .btn{flex:1;justify-content:center}
+    .contact h2{font-size:clamp(1.5rem,7.5vw,2.4rem)}
+  }
   .btn-solid{background:var(--ink);color:var(--paper)}
   .btn-solid:hover{background:var(--cobalt);border-color:var(--cobalt)}
   .btn-line:hover{background:var(--ink);color:var(--paper)}
