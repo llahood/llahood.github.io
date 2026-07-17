@@ -24,7 +24,7 @@
     --ease:cubic-bezier(.16,1,.3,1);
   }
   *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
+  html{scroll-behavior:smooth;overflow-x:clip}
   body{
     background:var(--paper);
     color:var(--ink);
@@ -139,6 +139,8 @@
     .mosaic{grid-template-columns:1fr}
     .tile{aspect-ratio:4/3;border-right:0!important}
     .tile.full{aspect-ratio:4/3}
+    .tile-name{flex-direction:column;align-items:flex-start;gap:6px}
+    .tile-name span{white-space:normal}
   }
 
   /* ---------- proof strip ---------- */
@@ -203,9 +205,10 @@
     -webkit-overflow-scrolling:touch;
   }
   .filmstrip img{
-    height:min(62vh,540px);width:auto;flex:0 0 auto;
+    height:min(62vh,540px);width:auto;max-width:none;flex:0 0 auto;
     scroll-snap-align:start;border:2px solid var(--ink);
   }
+  @media(max-width:640px){.filmstrip img{height:min(48vh,420px)}}
   .filmstrip::-webkit-scrollbar{height:8px}
   .filmstrip::-webkit-scrollbar-thumb{background:var(--ink)}
   .filmstrip::-webkit-scrollbar-track{background:transparent}
@@ -575,13 +578,6 @@
       e.preventDefault();
       t.scrollIntoView({behavior:'smooth',block:'start'});
       history.pushState(null,'',a.getAttribute('href'));
-      // re-align after images above finish loading and shift the layout
-      let tries=0;
-      const settle=setInterval(()=>{
-        const top=t.getBoundingClientRect().top;
-        if(Math.abs(top-76)>60) t.scrollIntoView({behavior:'auto',block:'start'});
-        if(++tries>5) clearInterval(settle);
-      },700);
     });
   });
 
@@ -591,7 +587,7 @@
       btn.closest('.ep-btns').querySelector('.ep-btn.active')?.classList.remove('active');
       btn.classList.add('active');
       document.getElementById(btn.dataset.player).src =
-        `https://www.youtube.com/embed/${btn.dataset.yt}?rel=0&autoplay=1`;
+        `https://www.youtube.com/embed/${btn.dataset.yt}?rel=0&autoplay=1&playsinline=1`;
     });
   });
 
