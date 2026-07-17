@@ -98,7 +98,6 @@
     .hero-foot{flex-direction:column;align-items:flex-start}
     .hero-cta-row{width:100%}
     .hero-cta-row .btn{flex:1;justify-content:center}
-    .contact h2{font-size:clamp(1.5rem,7.5vw,2.4rem)}
   }
   .btn-solid{background:var(--ink);color:var(--paper)}
   .btn-solid:hover{background:var(--cobalt);border-color:var(--cobalt)}
@@ -277,6 +276,7 @@
     transition:color .25s var(--ease);word-break:break-all;
   }
   .email-link:hover{color:var(--cobalt)}
+  @media(max-width:640px){.contact h2{font-size:clamp(1.35rem,6.8vw,2.2rem)}}
 
   footer{border-top:2px solid var(--ink);padding:26px 0;font-size:13px;color:var(--ink-soft);font-weight:600}
   footer .shell{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px}
